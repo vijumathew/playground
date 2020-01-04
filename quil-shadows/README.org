@@ -31,7 +31,8 @@ $ docker build -t $tag .
   #+END_SRC
 2. run the image
   #+BEGIN_SRC bash
-$ docker run -d -p 8080:80 $tag
+# dynamic port is needed by heroku
+$ docker run -e PORT=8081 -p 8080:8081 $tag
   #+END_SRC
 3. navigate to localhost:8080 to see the page in action
 ** deploying

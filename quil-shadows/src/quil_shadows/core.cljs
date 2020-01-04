@@ -58,7 +58,7 @@
       (do (when space-pressed?
             (a/clear-screen))
           (a/draw-message font
-                          "Click mouse to rainbow. Press space to clear" nil)
+                          "Click to rainbow. Press space to clear" nil)
           (when mouse-moved?
             (draw-colorful-circles start-color-cycling?
                                    stroke
@@ -66,7 +66,9 @@
                                    mouse-x
                                    mouse-y))))))
 
-(defn run-sketch []
+(defn run-sketch
+  "Helper fn to start the sketch."
+  []
   (q/defsketch quil-cljs
     :host "quil-cljs"
     :size [(.-innerWidth js/window)
@@ -76,4 +78,5 @@
     :draw draw-state
     :middleware [m/fun-mode]))
 
+;; start the sketch in browser
 (run-sketch)
