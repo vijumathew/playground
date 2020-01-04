@@ -1,0 +1,12 @@
+* quil-shadows
+simple project that uses shadow-cljs and quil
+* local dev
+** cider
+1. go to [[file:src/quil_shadows/core.cljs][core.cljs]] and do `M-x cider-jack-in-clojurescript`
+2. navigate to [[file:public/index.html][index.html]] in a browser
+3. in the cider-repl buffer execute
+  #+BEGIN_SRC clojure
+(shadow/watch :app)
+(shadow/repl :app)
+  #+END_SRC
+4. refresh the page
