@@ -1,19 +1,38 @@
 * quil-shadows
 simple project that uses shadow-cljs and quil
 * preview
-currently this is hosted on [[http:heroku.com][heroku] ]
-* local dev
-** cider with browser repl
+currently this is hosted on [[https://quil-shadows.herokuapp.com/][heroku]]
+* working with app
+** local dev
+*** cider with browser repl
 this assumes you have [[https://docs.cider.mx/cider/0.23/basics/installation.html][cider]] and [[https://shadow-cljs.github.io/docs/UsersGuide.html#_installation][shadow-cljs]] installed
-1. go to [[file:src/quil_shadows/core.cljs][core.cljs]] and do `M-x cider-jack-in-clojurescript`
+1. go to [[file:src/quil_shadows/core.cljs][core.cljs]] and execute
+  #+BEGIN_SRC 
+M-x cider-jack-in-clojurescript
+  #+END_SRC
 2. navigate to [[file:public/index.html][index.html]] in a browser
 3. in the cider-repl buffer execute
   #+BEGIN_SRC clojure
-  (shadow/watch :app)
-  (shadow/repl :app)
+(shadow/watch :app)
+(shadow/repl :app)
   #+END_SRC
 4. refresh the page
 5. now the repl is connected to the browser window - test this with
-  #+BEGIN_SRC
-  (js/alert "connected!")
+  #+BEGIN_SRC clojure
+(js/alert "connected!")
   #+END_SRC
+** prod build
+1. build with docker from this dir
+  #+BEGIN_SRC bash
+$ pwd
+~/playground/quil-shadows
+$ docker build -t $tag .
+...
+  #+END_SRC
+2. run the image
+  #+BEGIN_SRC bash
+$ docker run -d -p 8080:80 $tag
+  #+END_SRC
+3. navigate to localhost:8080 to see the page in action
+** deploying
+push docker image up to [[https://devcenter.heroku.com/articles/container-registry-and-runtime][heroku]]
