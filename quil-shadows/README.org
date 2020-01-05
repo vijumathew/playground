@@ -10,14 +10,15 @@ this assumes you have [[https://docs.cider.mx/cider/0.23/basics/installation.htm
   #+BEGIN_SRC 
 M-x cider-jack-in-clojurescript
   #+END_SRC
-2. navigate to [[file:public/index.html][index.html]] in a browser
-3. in the cider-repl buffer execute
+2. in the cider popups choose "shadow-select" then ":app"
+3. navigate to [[file:public/index.html][index.html]] in a browser
+4. in the cider-repl buffer execute
   #+BEGIN_SRC clojure
 (shadow/watch :app)
 (shadow/repl :app)
   #+END_SRC
-4. refresh the page
-5. now the repl is connected to the browser window - test this with
+5. refresh the page
+6. now the repl is connected to the browser window - test this with
   #+BEGIN_SRC clojure
 (js/alert "connected!")
   #+END_SRC
